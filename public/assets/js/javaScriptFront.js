@@ -30,6 +30,63 @@ function ciudades() {
     });
 }
 
+$("#compra").click(() => {
+    var datos = []
+    var nombre
+    var precio
+    var unidadesDis
+    var unidadesCompra;
+    var flag = true
+    $("#productosDis tbody tr").each(function(index) {
+        $(this).children("td").each(function(index2) {
+            switch (index2) {
+                case 0:
+                    nombre = $(this).text();
+                    break;
+                case 1:
+                    precio = $(this).text();
+                    break;
+                case 2:
+                    unidadesDis = $(this).text();
+                    break
+                case 3:
+                    unidadesCompra = $(this).children().val();
+                    break
+            }
+        })
+        fila = {
+            index,
+            nombre,
+            precio,
+            unidadesDis,
+            unidadesCompra
+        }
+        if (fila.unidadesCompra != "") {
+            datos.push(fila)
+        }
+        if (Number(fila.unidadesDis) < Number(fila.unidadesCompra)) {
+            alert(`No hay suficientes unidades disponibles para el producto: ${fila.nombre} `)
+            flag = false
+        }
+    })
+    if (flag && datos.length > 0) {
+        console.log(datos);
+        $.ajax({
+            type: 'post',
+            url: '/compra',
+            data: { datos },
+            error: function() {
+                alert("Error al intentar el logout")
+            }
+        })
+
+    }
+
+})
+
+
+
+
 function login() {
     $.ajax({
         type: 'post',

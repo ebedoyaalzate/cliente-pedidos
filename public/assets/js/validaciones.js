@@ -1,20 +1,20 @@
-$("#register").submit(function(e) {
-    var nombre = $("#nombre").val()
-    var id = $("#id").val()
-    var email = $("email").val()
-    var clave = $("clave").val()
-    var departamento = $("departamento").val()
-    var ciudad = $("ciudad").val()
-    var codigo = $("codigo").val()
-    var direccion = $("direccion").val()
-    var telefono = $("telefono").val()
+// $("#register").submit(function(e) {
+//     var nombre = $("#nombre").val()
+//     var id = $("#id").val()
+//     var email = $("email").val()
+//     var clave = $("clave").val()
+//     var departamento = $("departamento").val()
+//     var ciudad = $("ciudad").val()
+//     var codigo = $("codigo").val()
+//     var direccion = $("direccion").val()
+//     var telefono = $("telefono").val()
 
 
-    if (validarNombre(nombre)) {
-        e.preventDefault();
-        alert("ERROR")
-    }
-})
+//     if (validarNombre(nombre)) {
+//         e.preventDefault();
+//         alert("ERROR")
+//     }
+// })
 
 validarNombre = (nombre) => {
     if (nombre.length === 0 || nombre === null) {

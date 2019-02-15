@@ -12,24 +12,35 @@ router.use(bodyParser.json())
 
 
 router.get('/', async(req, res) => {
-    datos = await datosRequeridos();
-    console.log(datos);
-    res.render('index', datos);
+    res.render('index');
 })
 
 
 router.get('/home', async(req, res) => {
-    var productos = await product.obtenerProductos();
-    res.render('home', {
-        productos
-    });
+    res.render('home');
+})
+
+router.post('/register', async(req, res) => {
+    res.render('index');
+})
+
+router.post('/login', async(req, res) => {
+    res.render('home')
+})
+
+router.get('/logout', async(req, res) => {
+    res.render('index')
+})
+
+router.post('/compra', async(req, res) => {
+    console.log(req.body);
+    res.render('home')
 })
 
 
 
-
 datosRequeridos = async() => {
-    var depart = await axios.get("http://localhost:3000/departamentos")
+    var depart = null //await axios.get("http://localhost:3000/departamentos")
 
     var productos = null //await product.obtenerProductos();
     var misPedidos = null //await order.pedidosCliente("2") //cambiar id

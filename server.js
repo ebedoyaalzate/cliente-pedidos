@@ -6,7 +6,7 @@ require('./hbs/helpers');
 
 const routes = require('./routes'); //Requerimos el archivo de rutas
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
 
